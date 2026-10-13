@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sushain Shopify API Dashboard
+
+A Next.js application integrated with the Shopify Admin API to manage product information, update product prices, and view recent orders.
+
+## Features
+
+- **Product Listing:** Fetch and display products from the Shopify store.
+- **Price Management:** Update product variant prices through the Shopify API.
+- **Order Management:** Retrieve and display recent orders.
+- **API Integration:** Connect to Shopify using secure server-side API routes.
+- **Dashboard UI:** View product details and order information in one place.
+
+## Tech Stack
+
+- Next.js
+- React
+- JavaScript
+- Shopify Admin GraphQL API
+- Node.js
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js installed
+- A Shopify development store
+- Shopify app credentials with the required API access scopes
+
+### Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/muskan2862/shushain-shopify.git
+cd shushain-shopify
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+### Environment Variables
+
+Create a `.env.local` file in the project root and configure the following variables using your Shopify app credentials:
+
+```env
+SHOPIFY_SHOP=your-store.myshopify.com
+SHOPIFY_CLIENT_ID=your-client-id
+SHOPIFY_CLIENT_SECRET=your-client-secret
+```
+
+**Security:** Never commit `.env.local` or expose your Shopify client secret in public repositories.
+
+### Run Locally
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## API Routes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Endpoint | Purpose |
+|---|---|
+| `/api/test-shopify` | Test the Shopify connection and fetch products |
+| `/api/update-price` | Update a product variant's price |
+| `/api/orders` | Fetch recent orders |
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```text
+shushain-shopify/
+├── app/
+│   ├── api/
+│   │   ├── test-shopify/
+│   │   ├── update-price/
+│   │   └── orders/
+│   └── page.js
+├── .env.local
+├── .gitignore
+└── package.json
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This application can be deployed using [Vercel](https://vercel.com/). Configure the required Shopify environment variables in the deployment platform before deploying.
 
-## Deploy on Vercel
+## Notes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- API credentials should remain server-side.
+- Shopify API access scopes must match the operations performed by the application.
+- Test price updates carefully in a development store.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Author
+
+Muskan
+
+## License
+
+No license has been specified yet.
